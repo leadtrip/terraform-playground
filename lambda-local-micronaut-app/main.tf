@@ -11,6 +11,7 @@ provider "aws" {
   region = "eu-west-2"
 }
 
+
 resource "aws_iam_role" "lambda_role" {
   name = "micronaut_lambda_role"
 
@@ -58,4 +59,9 @@ resource "aws_lambda_function_url" "url" {
 
 output "lambda_url" {
   value = aws_lambda_function_url.url.function_url
+}
+
+output "function_name" {
+  description = "Name of the Lambda function."
+  value = aws_lambda_function.micronaut_fn.function_name
 }
