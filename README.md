@@ -1,4 +1,4 @@
-Test groud for playing around with terraform.
+Test groud for terraform.
 
 ## Main commands
 * init - Prepare your working directory for other commands
@@ -7,16 +7,22 @@ Test groud for playing around with terraform.
 * apply - Create or update infrastructure
 * destroy - Destroy previously-created infrastructure
 
+Terraform deployment flow
+![img.png](img.png) 
+
 ## Blocks overview
-* terraform  → tool config
-* provider   → which cloud + how to connect
-* resource   → create something
-* data       → look up something
-* variable   → input parameter
-* locals     → internal helper values
-* output     → print/export values
-* module     → reuse code
-* backend    → where state lives
+* terraform - Used to configure Terraform and the current workspace.
+* provider - Allows for provider-specific settings.
+* resource - Creates and updates a corresponding piece of infrastructure. These blocks have their own subtypes that come from providers. There are potentially hundreds of thousands of resource subtypes.
+* data - Is similar to a resource but is read-only and looks up existing infrastructure components. Just like resources, these have subtypes that come from providers.
+* variable - Allows for external inputs to be passed into the program or module.
+* locals - Contains internal variables that are scoped to a module.
+* module - An abstraction that allows HCL code to be reused over and over again.
+* import - A way to pull existing infrastructure into Terraform.
+* moved - A tool for refactoring that allows you to change the name of resources.
+* removed - Allows people to mark an item as removed without causing it to be destroyed.
+* check - Used to validate deployed infrastructure.
+* output - A way to share data from inside a module with other modules or workspaces.
 
 ## Blocks detail
 ### terraform
