@@ -47,14 +47,15 @@ provider "aws" {
 }
 ```
 ### resource
-Creates or manages infrastructure, resources are detailed [here](https://registry.terraform.io/providers/hashicorp/aws/latest)
+Creates or manages infrastructure, resources are detailed [here](https://registry.terraform.io/providers/hashicorp/aws/latest)\
+The resource type and name combine to make a unique identifier for the resource inside a module or workspace.
 ```terraform
 resource "TYPE" "NAME" {
     argument = value
 }
 ```
 ### data
-Fetches existing infrastructure, does not create it
+Fetches existing infrastructure, does not create it, provides data for other elements of terraform.
 ```terraform
 data "TYPE" "NAME" {
   filter = ...
@@ -105,7 +106,9 @@ terraform {
 }
 ```
 ## Sample projects in this repo
-### js-lambda-api-gateway
+## hashicorp-guide
+Creates an EC2 t2 micro instance from the [aws_instance](https://registry.terraform.io/providers/hashicorp/aws/6.17.0/docs/resources/instance) resource and a VPC from the [/terraform-aws-modules/vpc/aws](https://registry.terraform.io/modules/terraform-aws-modules/vpc/aws/latest) module
+### lambda-api-gateway-js
 Creates an S3 bucket, builds the app, deploys the app to the S3 bucket, creates a lambda that sources the app from the S3 bucket and creates an API gateway
 Once applied, you can execute the following commands to check the s3 bucket, execute the lambda directly and through the API gateway
 ```
@@ -122,3 +125,6 @@ Execute the lambda and check response with the following.
 aws lambda invoke --region=eu-west-2 --function-name=$(terraform output -raw function_name) response.json
 cat response.json
 ```
+## module-aws-lambda-micronaut-app
+Uses the [terraform-aws-modules/lambda/aws](https://registry.terraform.io/modules/terraform-aws-modules/lambda/aws/latest) module which abstracts away the majority of low level resource creation
+when using aws_lambda_function and associated

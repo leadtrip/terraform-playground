@@ -19,6 +19,7 @@ resource "aws_iam_role" "lambda_role" {
     Version = "2012-10-17"
     Statement = [{
       Effect = "Allow"
+      Sid    = ""
       Principal = {
         Service = "lambda.amazonaws.com"
       }
@@ -45,7 +46,7 @@ resource "aws_lambda_function" "micronaut_fn" {
   function_name = "micronaut-demo"
 
   filename         = "app-shadow.jar"
-  source_code_hash = filebase64sha256("app-shadow.jar")
+  source_code_hash = filebase64sha256("../files/mn-shadow-app.jar")
 
   role    = aws_iam_role.lambda_role.arn
   handler = "wood.mike.FunctionRequestHandler"
