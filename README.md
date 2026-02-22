@@ -106,6 +106,8 @@ terraform {
 }
 ```
 ## Sample projects in this repo
+## modules
+Contains my modules that are called by other projects
 ## hashicorp-guide
 Creates an EC2 t2 micro instance from the [aws_instance](https://registry.terraform.io/providers/hashicorp/aws/6.17.0/docs/resources/instance) resource and a VPC from the [/terraform-aws-modules/vpc/aws](https://registry.terraform.io/modules/terraform-aws-modules/vpc/aws/latest) module
 ### lambda-api-gateway-js
@@ -128,3 +130,5 @@ cat response.json
 ## module-aws-lambda-micronaut-app
 Uses the [terraform-aws-modules/lambda/aws](https://registry.terraform.io/modules/terraform-aws-modules/lambda/aws/latest) module which abstracts away the majority of low level resource creation
 when using aws_lambda_function and associated
+## module-s3-logs-bucket
+Makes use of the [s3-logs-bucket](modules/s3-logs-bucket) module 
