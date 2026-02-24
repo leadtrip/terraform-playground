@@ -132,5 +132,15 @@ Uses the [terraform-aws-modules/lambda/aws](https://registry.terraform.io/module
 when using aws_lambda_function and associated
 ## module-s3-logs-bucket
 Makes use of the [s3-logs-bucket](modules/s3-logs-bucket) module 
-# templatefile-docker-compose
+## templatefile-docker-compose
 Generates a docker compose file based on the environment, one of dev or prod, variables are specified in terraform.tfvars file
+## kubernetes-local - nginx
+Adds some nginx instances to a local kubernetes cluster
+## kubernetes-local - monitoring
+Adds the helm [kube-prometheus-stack](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack)\
+Check pods:\
+`kubectl get pods -n monitoring`\
+Access grafana:\
+`kubectl port-forward svc/kube-prometheus-stack-grafana 3000:80 -n monitoring`\
+http://localhost:3000\
+On first deploy login with -> admin/admin
