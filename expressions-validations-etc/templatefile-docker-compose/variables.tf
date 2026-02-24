@@ -1,0 +1,18 @@
+variable "environment" {
+  description = "Deployment environment"
+  type        = string
+  default     = "dev"
+
+  validation {
+    condition     = contains(["dev", "prod"], var.environment)
+    error_message = "Environment must be dev or prod"
+  }
+}
+
+variable "services" {
+  description = "Base Docker services"
+  type = map(object({
+    image = string
+    ports = list(string)
+  }))
+}

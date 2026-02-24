@@ -132,3 +132,5 @@ Uses the [terraform-aws-modules/lambda/aws](https://registry.terraform.io/module
 when using aws_lambda_function and associated
 ## module-s3-logs-bucket
 Makes use of the [s3-logs-bucket](modules/s3-logs-bucket) module 
+# templatefile-docker-compose
+Generates a docker compose file based on the environment, one of dev or prod, variables are specified in terraform.tfvars file

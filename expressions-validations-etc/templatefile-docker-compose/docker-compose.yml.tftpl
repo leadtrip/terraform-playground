@@ -1,0 +1,16 @@
+version: "3.9"
+
+# Generated for environment: ${environment}
+
+services:
+%{ for name, service in services ~}
+  ${name}:
+    image: ${service.image}
+%{ if length(service.ports) > 0 }
+    ports:
+%{ for port in service.ports ~}
+      - "${port}"
+%{ endfor }
+%{ endif }
+
+%{ endfor }
